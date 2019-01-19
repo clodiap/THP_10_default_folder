@@ -12,6 +12,7 @@ Le programme va créer :
 * un fichier `.gitignore` rempli avec `.env`
 * un dossier `lib`
 * un fichier `README.md`
+* un fichier `.rubocop.yml` pour que rubocop soit moins strict
 * une commande `$ bundle install`
 * des commandes pour créer un repository Github (pour cela il faudra installer hub – https://hub.github.com/), un premier `commit` et un premier `push origin master`
 

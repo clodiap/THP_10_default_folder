@@ -1,16 +1,6 @@
-    # Création d'un dossier qui porte le nom de l'ARGV de l'utilisateur
-    #     Si l'utilisateur ne rentre pas de ARGV ou s'il rentre un ARGV avec plusieurs mots, le programme doit dire à l'utilisateur comment s'en servir et s'arrêter
-    # Création du Gemfile avec les gems de THP
-    # Git init
-    # Création du fichier .env, puis on le met dans le fichier gitignore
-    # Création du dossier lib
-    # rspec --init
-    # Création d'un Readme.md qui va dire que c'est un programme Ruby
-    # Évidemment, tu vas créer un alias qui va s'occuper de pouvoir appeler ton programme avec mkdiruby (ou autre)
-
 # création dossier général
 def check_if_user_gave_input
-  abort("missing input") if ARGV.empty?
+  abort("Relance la commande suivie du nom du dossier à créer") if ARGV.empty?
 end
 
 def get_folder_name
@@ -58,7 +48,7 @@ end
 # Création d'un Readme.md qui va dire que c'est un programme Ruby
 def create_readme_ruby_program(folder_name)
   file = File.open("#{folder_name}/README.md", "a")
-  file.puts("# #{folder_name}\n\nProgramme Ruby réalisé par Claudia Partonnau")
+  file.puts("# #{folder_name}\n\nProgramme Ruby réalisé dans le cadre de la formation THP, *The Hacking Project*.")
   file.close
 end
 
@@ -68,6 +58,12 @@ def bundle_install(folder_name)
 end
 
 # repo github + 1er commit
+def create_github_repo(folder_name)
+    system("cd #{folder_name}\nhub create")
+    system("cd #{folder_name}\ngit add .")
+    system("cd #{folder_name}\ngit commit -m \"First commit\"")
+    system("cd #{folder_name}\ngit push origin master")
+end
 
 
 
@@ -83,8 +79,7 @@ def perform
   create_folder_lib(folder_name)
   create_readme_ruby_program(folder_name)
   bundle_install(folder_name)
+  create_github_repo(folder_name)
 end
 
 perform
-
-

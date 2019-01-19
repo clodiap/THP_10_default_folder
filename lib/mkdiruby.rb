@@ -98,9 +98,9 @@ def perform
   create_env_file_gitignore(folder_name)
   create_folder_lib(folder_name)
   create_readme_ruby_program(folder_name)
+  create_rubocop_file(folder_name)
   bundle_install(folder_name)
   create_github_repo(folder_name)
-  create_rubocop_file(folder_name)
 end
 
 perform

@@ -5,11 +5,11 @@ Automatisation des tâches avec la création d'un petit programme pour créer au
 ## mkdiruby.rb
 Le programme va créer :
 * un dossier avec un nom au choix de l'utilisateur
-* un fichier Gemfile avec les gems les plus fréquemment utilisées
+* un fichier `Gemfile` avec les gems les plus fréquemment utilisées
 * une commande `$ git init`
 * une commande `$ rspec --init`
-* un fichier .env
-* un fichier .gitignore rempli avec `.env`
+* un fichier `.env`
+* un fichier `.gitignore` rempli avec `.env`
 * un dossier `lib`
 * un fichier `README.md`
 * une commande `$ bundle install`

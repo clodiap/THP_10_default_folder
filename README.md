@@ -1,4 +1,4 @@
-# THP 10ème jour - Default folder
+# THP 10ème jour - Default folder 📁
 
 Automatisation des tâches avec la création d'un petit programme pour créer automatiquement un environnement de travail pour un projet en Ruby 💎
 
@@ -15,7 +15,7 @@ Le programme va créer :
 * une commande `$ bundle install`
 * des commandes pour créer un repository Github (pour cela il faudra installer hub – https://hub.github.com/), un premier `commit` et un premier `push origin master`
 
-Il faudra créer un alias pour que la commande soit reconnue dans le terminal :
+Il faudra créer un alias pour que la commande soit reconnue dans le terminal (dans le fichier .bash_profile ou .zshrc) :
 `alias mkdiruby="ruby /home/ton/chemin/vers/mkdiruby.rb"`
 
 Programme Ruby réalisé dans le cadre de la formation THP, *The Hacking Project*.

@@ -48,7 +48,7 @@ end
 # Création d'un Readme.md qui va dire que c'est un programme Ruby
 def create_readme_ruby_program(folder_name)
   file = File.open("#{folder_name}/README.md", "a")
-  file.puts("# #{folder_name}\n\nProgramme Ruby réalisé dans le cadre de la formation THP, *The Hacking Project*.")
+  file.puts("# #{folder_name}\n\n*Programme Ruby réalisé dans le cadre de la formation THP – The Hacking Project*.")
   file.close
 end
 

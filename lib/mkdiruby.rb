@@ -39,13 +39,16 @@ def create_env_file_gitignore(folder_name)
   file.close
 end
 
-# Création du dossier lib
-def create_folder_lib(folder_name)
+# Création du dossier lib + db + lib/app + lib/views
+def create_folders(folder_name)
   Dir.mkdir("#{folder_name}/lib")
+  Dir.mkdir("#{folder_name}/db")
+  Dir.mkdir("#{folder_name}/lib/app")
+  Dir.mkdir("#{folder_name}/lib/views")
 end
 
 # Création d'un Readme.md qui va dire que c'est un programme Ruby
-def create_readme_ruby_program(folder_name)
+def create_readme(folder_name)
   file = File.open("#{folder_name}/README.md", "a")
   file.puts("# #{folder_name}\n\n*Programme Ruby réalisé dans le cadre de la formation THP – The Hacking Project*.")
   file.close
@@ -54,14 +57,6 @@ end
 # bundle
 def bundle_install(folder_name)
   system("cd #{folder_name}\nbundle install")
-end
-
-# repo github + 1er commit
-def create_github_repo(folder_name)
-    system("cd #{folder_name}\nhub create")
-    system("cd #{folder_name}\ngit add .")
-    system("cd #{folder_name}\ngit commit -m \"First commit\"")
-    system("cd #{folder_name}\ngit push origin master")
 end
 
 # Création d'un fichier .rubocop.yml pour que rubocop soit moins strict
@@ -87,6 +82,21 @@ Exclude:
   file.close
 end
 
+# création d'un fichier app.rb
+def create_file_app(folder_name)
+  file = File.open("#{folder_name}/app.rb", "a")
+  file.puts("require 'bundler'\nBundler.require\n\n$:.unshift File.expand_path('./../lib', __FILE__)\n# require 'NomDeClasse'")
+  file.close
+end
+
+# repo github + 1er commit
+def create_github_repo(folder_name)
+    system("cd #{folder_name}\nhub create")
+    system("cd #{folder_name}\ngit add .")
+    system("cd #{folder_name}\ngit commit -m \"First commit\"")
+    system("cd #{folder_name}\ngit push origin master")
+end
+
 def perform
   check_if_user_gave_input
   folder_name = get_folder_name # variable qui récupère le nom de fichier
@@ -96,9 +106,10 @@ def perform
   git_init(folder_name)
   rspec(folder_name)
   create_env_file_gitignore(folder_name)
-  create_folder_lib(folder_name)
-  create_readme_ruby_program(folder_name)
+  create_folders(folder_name)
+  create_readme(folder_name)
   create_rubocop_file(folder_name)
+  create_file_app(folder_name)
   bundle_install(folder_name)
   create_github_repo(folder_name)
 end

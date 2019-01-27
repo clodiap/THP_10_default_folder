@@ -54,11 +54,6 @@ def create_readme(folder_name)
   file.close
 end
 
-# bundle
-def bundle_install(folder_name)
-  system("cd #{folder_name}\nbundle install")
-end
-
 # Création d'un fichier .rubocop.yml pour que rubocop soit moins strict
 def create_rubocop_file(folder_name)
   file = File.open("#{folder_name}/lib/.rubocop.yml", "a")
@@ -85,8 +80,13 @@ end
 # création d'un fichier app.rb
 def create_file_app(folder_name)
   file = File.open("#{folder_name}/app.rb", "a")
-  file.puts("require 'bundler'\nBundler.require\n\n$:.unshift File.expand_path('./../lib', __FILE__)\n# require 'NomDeClasse'")
+  file.puts("require 'bundler'\nBundler.require\n\nrequire_relative 'lib/nomdefichiersansextension'")
   file.close
+end
+
+# bundle
+def bundle_install(folder_name)
+  system("cd #{folder_name}\nbundle install")
 end
 
 # repo github + 1er commit
